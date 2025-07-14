@@ -1,242 +1,292 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="scroll-smooth">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Friends Club</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    /* Custom font for Inter - Tailwind default uses it, but good to explicitly include if needed */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
     body {
-         margin: 0;
-         font-family: 'Segoe UI', Arial, sans-serif;
-         background: linear-gradient(120deg, #1e3c72, #2a5298);
-         color: #fff;
+      font-family: 'Inter', sans-serif;
     }
 
-     .header {
-
-         background: rgba(0,0,0,0.7);
-         padding: 40px 0 20px 0;
-         text-align: center;
-         border-bottom: 3px solid #ffd700;
- 
+    /* Keyframes for background animation */
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    .header h1 {
-
-          font-size: 3em;
-          margin: 0;
-          letter-spacing: 2px;
-          color: #ffd700;
-          text-shadow: 2px 2px 8px #222;
-
+    /* Apply animation to hero section */
+    #about {
+      /* New gradient colors for animation */
+      background: linear-gradient(120deg, #1f2937, #334155, #1f2937); /* Deep slate blues */
+      background-size: 200% 200%; /* Make gradient larger than viewport */
+      animation: gradientAnimation 15s ease infinite; /* Apply animation */
     }
 
-    .header p {
-
-                font-size: 1.3em;
-                margin-top: 10px;
-                color: #fff;
-
+    /* Custom scrollbar for a cleaner look */
+    ::-webkit-scrollbar {
+      width: 8px;
     }
-
-    .nav {
-
-                    background: #ffd700;
-                    text-align: center;
-                    padding: 10px 0;
-
+    ::-webkit-scrollbar-track {
+      background: #1f2937;
     }
-
-    .nav a {
-
-                          color: #1e3c72;
-                          text-decoration: none;
-                          font-weight: bold;
-                          margin: 0 18px;
-                          font-size: 1.1em;
-                          transition: color 0.2s;
-
+    ::-webkit-scrollbar-thumb {
+      background: #475569;
+      border-radius: 4px;
     }
-
-    .nav a:hover {
-
-       color: #fff;
-
-    }
-    .main {
-
-
-                                     max-width: 900px;
-                                     margin: 30px auto;
-                                     background: rgba(255,255,255,0.1);
-                                     padding: 30px;
-                                     border-radius: 15px;
-                                     box-shadow: 0 0 20px #222;
-
-    }
-
-    .club-logo {
-
-             display: block;
-          margin: 0 auto 20px auto;
-             width: 180px;
-          height: 180px;
-             border-radius: 50%;
-          border: 5px solid #ffd700;
-             box-shadow: 0 0 10px #222;
-          object-fit: cover;
-
-    }
-
-    h2 {
-
-      color: #ffd700;
-      margin-top: 0;
-      text-shadow: 1px 1px 6px #222;
-    }
-
-    .members {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .member-card {
-      background: rgba(0,0,0,0.5);
-      padding: 18px;
-      border-radius: 10px;
-      flex: 1 1 180px;
-      min-width: 180px;
-      text-align: center;
-      box-shadow: 0 0 8px #222;
-    }
-    .member-card img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      border: 2px solid #ffd700;
-      margin-bottom: 10px;
-      object-fit: cover;
-    }
-    .footer {
-      text-align: center;
-      padding: 18px 0;
-      background: rgba(0,0,0,0.7);
-      color: #ffd700;
-      margin-top: 40px;
-      font-size: 1em;
-      letter-spacing: 1px;
-    }
-    @media (max-width: 600px) {
-      .main { padding: 10px; }
-      .members { flex-direction: column; }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #f97316;
     }
   </style>
 </head>
-<body>
-  <div class="header">
-    <h1>Friends Club</h1>
-    <p>Passion | Teamwork | Victory</p>
-  </div>
-  <div class="nav">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#members">Members</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="main" id="home">
-    <img src="Club-Logo.png" alt="Club Logo" class="club-logo">
-    <h2 id="about">About Our Club</h2>
-    <p>
-      Friends Club is a group of passionate footballers. We believe in teamwork, discipline, and fair play. Our club regularly organizes matches, tournaments, and training sessions for all age groups.
-    </p>
-    <h2 id="members">Club Members</h2>
-    <div class="members">
-      <div class="member-card">
-        <img src="member1.jpg" alt="Captain">
-        <strong>Muktadir Hasan saad</strong>
-        <div>Captain</div>
-      </div>
-      <div class="member-card">
-        <img src="member2.jpg" alt="RMF">
-        <strong>Mahin Sarowar</strong>
-        <div>RMF</div>
-      </div>
-      <div class="member-card">
-        <img src="member3.jpg" alt="CF">
-        <strong>Zeon</strong>
-        <div>CF</div>
-      </div>
-      <div class="member-card">
-        <img src="member4.jpg" alt="CF">
-        <strong>Tuasin</strong>
-        <div>CF</div>
-      </div>
-      <div class="member-card">
-        <img src="member5.jpg" alt="CF">
-        <strong>Ashikur Adib</strong>
-        <div>CF</div>
-      </div>
-      <div class="member-card">
-        <img src="member6.jpg" alt="CMF">
-        <strong>Labib</strong>
-        <div>CMF</div>
-      </div>
-      <div class="member-card">
-        <img src="member7.jpg" alt="CMF">
-        <strong>Siam</strong>
-        <div>CMF</div>
-      </div>
-      <div class="member-card">
-        <img src="member8.jpg" alt="DMF">
-        <strong>Shimul</strong>
-        <div>DMF</div>
-      </div>
-      <div class="member-card">
-        <img src="member9.jpg" alt="CB">
-        <strong>Asif Raihan</strong>
-        <div>CB</div>
-      </div>
-      <div class="member-card">
-        <img src="member10.jpg" alt="CB">
-        <strong>Hasan Rabby</strong>
-        <div>CB</div>
-      </div>
-      <div class="member-card">
-        <img src="member11.jpg" alt="CB">
-        <strong>Shuvo</strong>
-        <div>CB</div>
-      </div>
-      <div class="member-card">
-        <img src="member12.jpg" alt="RB">
-        <strong>Araf</strong>
-        <div>RB</div>
-      </div>
-      <div class="member-card">
-        <img src="member13.jpg" alt="LB">
-        <strong>Ahsab Habib Rafe</strong>
-        <div>LB</div>
-      </div>
-      <div class="member-card">
-        <img src="member14.jpg" alt="Goalkeeper">
-        <strong>Samdman Shams Swadin</strong>
-        <div>Goalkeeper</div>
-      </div>
-      <div class="member-card">
-        <img src="member15.jpg" alt="Goalkeeper">
-        <strong>S.M.Alfe Shah</strong>
-        <div>Goalkeeper</div>
-      </div>
-    </div> <!-- .members div ends here -->
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased">
 
-    <h2 id="contact">Contact Us</h2>
-    <p>
-      Email: <a href="mailto:friendsclubgfn@gmail.com" style="color:#ffd700;">friendsclubgfn@gmail.com</a><br>
-      Facebook: <a href="https://www.facebook.com/share/1BmqRWihHK/" target="_blank" style="color:#ffd700;">www.facebook.com/share/1BmqRWihHK/</a><br>
-      Mobile: <a href="tel:01734488379" style="color:#ffd700;">01734488379</a>
-    </p>
-  </div>
-  <div class="footer">
+  <!-- Header Section - Fully Professional -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900 bg-opacity-95 py-4 md:py-5 shadow-2xl border-b border-orange-500 backdrop-blur-sm">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6 md:px-8">
+      <div class="text-center md:text-left mb-3 md:mb-0">
+        <h1 class="text-4xl lg:text-5xl font-extrabold tracking-tight text-orange-400 drop-shadow-lg">Friends Club</h1>
+        <p class="text-base md:text-lg text-slate-400 mt-1">Passion | Teamwork | Victory</p>
+      </div>
+      <!-- Navigation Section -->
+      <nav class="flex flex-wrap justify-center gap-x-6 md:gap-x-8 gap-y-2 mt-4 md:mt-0">
+        <a href="#about" class="text-slate-300 hover:text-orange-400 font-medium text-lg px-4 py-2 rounded-lg hover:bg-slate-700 transition-all duration-300 ease-in-out">About</a>
+        <a href="#vision-mission" class="text-slate-300 hover:text-orange-400 font-medium text-lg px-4 py-2 rounded-lg hover:bg-slate-700 transition-all duration-300 ease-in-out">Vision & Mission</a>
+        <a href="#events-news" class="text-slate-300 hover:text-orange-400 font-medium text-lg px-4 py-2 rounded-lg hover:bg-slate-700 transition-all duration-300 ease-in-out">Events & News</a>
+        <a href="#gallery" class="text-slate-300 hover:text-orange-400 font-medium text-lg px-4 py-2 rounded-lg hover:bg-slate-700 transition-all duration-300 ease-in-out">Gallery</a>
+        <a href="#members" class="text-slate-300 hover:text-orange-400 font-medium text-lg px-4 py-2 rounded-lg hover:bg-slate-700 transition-all duration-300 ease-in-out">Members</a>
+        <a href="#contact" class="text-slate-300 hover:text-orange-400 font-medium text-lg px-4 py-2 rounded-lg hover:bg-slate-700 transition-all duration-300 ease-in-out">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section (About Our Club) - Full Screen with Animation and Logo -->
+  <section id="about" class="min-h-screen flex items-center justify-center text-center px-4 py-20 pt-48 md:pt-40 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto z-10 p-6 rounded-xl bg-slate-900 bg-opacity-30 backdrop-blur-sm shadow-2xl">
+      <!-- Club Logo re-added to Hero Section -->
+      <img src="Club-Logo.png" alt="Club Logo" class="block w-52 h-52 rounded-full border-4 border-orange-400 shadow-xl object-cover mx-auto mb-10 transform transition-transform hover:scale-105 duration-500 ease-out">
+
+      <h2 class="text-5xl md:text-7xl font-extrabold text-orange-400 mb-8 leading-tight drop-shadow-xl">About Our Club</h2>
+      <p class="text-xl md:text-2xl leading-relaxed text-slate-200 max-w-2xl mx-auto">
+        Friends Club is a vibrant community of passionate footballers dedicated to the beautiful game. We firmly believe in the core values of teamwork, discipline, and fair play, fostering an environment where every member can thrive. Our club regularly organizes engaging matches, competitive tournaments, and comprehensive training sessions tailored for all age groups, ensuring continuous growth and enjoyment for everyone involved. Join us to share your love for football and be part of a winning team!
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Area for other sections -->
+  <main class="max-w-7xl mx-auto my-16 p-6 md:p-10 bg-slate-800 bg-opacity-70 rounded-3xl shadow-2xl backdrop-blur-md border border-slate-700">
+
+    <!-- Vision & Mission Section -->
+    <section id="vision-mission" class="mb-20">
+      <h2 class="text-4xl md:text-5xl font-bold text-orange-400 mb-12 text-center drop-shadow-md">Our Vision & Mission</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 text-center md:text-left">
+        <div class="bg-slate-900 p-8 rounded-xl shadow-xl border border-slate-700 transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <h3 class="text-3xl font-semibold text-orange-300 mb-5">Our Vision</h3>
+          <p class="text-lg leading-relaxed text-slate-200">
+            To be the leading football club in our community, inspiring a lifelong love for the sport and fostering a culture of excellence, sportsmanship, and personal growth among all our members. We envision a future where football unites people and creates lasting positive impacts.
+          </p>
+        </div>
+        <div class="bg-slate-900 p-8 rounded-xl shadow-xl border border-slate-700 transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <h3 class="text-3xl font-semibold text-orange-300 mb-5">Our Mission</h3>
+          <p class="text-lg leading-relaxed text-slate-200">
+            Our mission is to provide a supportive and challenging environment for footballers of all ages and skill levels. We are committed to developing talent, promoting physical fitness, and instilling values of teamwork, respect, and perseverance through structured training, competitive matches, and community engagement.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events & News Section -->
+    <section id="events-news" class="mb-20">
+      <h2 class="text-4xl md:text-5xl font-bold text-orange-400 mb-12 text-center drop-shadow-md">Events & News</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Event/News Card 1 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="https://placehold.co/400x250/334155/f97316?text=Upcoming+Match" alt="Upcoming Match" class="w-full h-52 object-cover rounded-lg mb-5 shadow-md">
+          <h3 class="text-2xl font-semibold text-orange-300 mb-3">Annual Club Tournament Announced!</h3>
+          <p class="text-slate-400 text-sm mb-4">Date: August 15, 2025 | Location: City Stadium</p>
+          <p class="text-slate-200 flex-grow">Get ready for our biggest event of the year! The annual Friends Club Tournament is just around the corner. Registrations open next week. Don't miss out!</p>
+          <a href="#" class="inline-block mt-6 text-orange-400 hover:text-orange-300 underline font-medium text-lg">Read More &rarr;</a>
+        </div>
+        <!-- Event/News Card 2 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="https://placehold.co/400x250/334155/f97316?text=Training+Session" alt="Training Session" class="w-full h-52 object-cover rounded-lg mb-5 shadow-md">
+          <h3 class="text-2xl font-semibold text-orange-300 mb-3">New Training Schedule Released</h3>
+          <p class="text-slate-400 text-sm mb-4">Date: July 10, 2025 | Category: Training</p>
+          <p class="text-slate-200 flex-grow">We've updated our training schedule to accommodate more sessions and specialized drills. Check the members' portal for full details.</p>
+          <a href="#" class="inline-block mt-6 text-orange-400 hover:text-orange-300 underline font-medium text-lg">Read More &rarr;</a>
+        </div>
+        <!-- Event/News Card 3 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="https://placehold.co/400x250/334155/f97316?text=Community+Outreach" alt="Community Outreach" class="w-full h-52 object-cover rounded-lg mb-5 shadow-md">
+          <h3 class="text-2xl font-semibold text-orange-300 mb-3">Community Outreach Program Success</h3>
+          <p class="text-slate-400 text-sm mb-4">Date: June 28, 2025 | Category: Community</p>
+          <p class="text-slate-200 flex-grow">Our recent community outreach program was a huge success, introducing football to over 100 local children. Thank you to all volunteers!</p>
+          <a href="#" class="inline-block mt-6 text-orange-400 hover:text-orange-300 underline font-medium text-lg">Read More &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="mb-20">
+      <h2 class="text-4xl md:text-5xl font-bold text-orange-400 mb-12 text-center drop-shadow-md">Our Gallery</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="relative group rounded-xl overflow-hidden shadow-xl border border-slate-700 transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="https://placehold.co/600x400/334155/f97316?text=Team+Celebration" alt="Team Celebration" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <p class="text-white text-xl font-semibold">Team Celebration</p>
+          </div>
+        </div>
+        <div class="relative group rounded-xl overflow-hidden shadow-xl border border-slate-700 transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="https://placehold.co/600x400/334155/f97316?text=Training+Session" alt="Training Session" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <p class="text-white text-xl font-semibold">Intense Training</p>
+          </div>
+        </div>
+        <div class="relative group rounded-xl overflow-hidden shadow-xl border border-slate-700 transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="https://placehold.co/600x400/334155/f97316?text=Match+Day" alt="Match Day Action" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <p class="text-white text-xl font-semibold">Match Day Action</p>
+          </div>
+        </div>
+        <div class="relative group rounded-xl overflow-hidden shadow-xl border border-slate-700 transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="https://placehold.co/600x400/334155/f97316?text=Community+Event" alt="Community Event" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <p class="text-white text-xl font-semibold">Community Engagement</p>
+          </div>
+        </div>
+        <div class="relative group rounded-xl overflow-hidden shadow-xl border border-slate-700 transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="https://placehold.co/600x400/334155/f97316?text=Youth+Program" alt="Youth Program" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <p class="text-white text-xl font-semibold">Youth Development</p>
+          </div>
+        </div>
+        <div class="relative group rounded-xl overflow-hidden shadow-xl border border-slate-700 transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="https://placehold.co/600x400/334155/f97316?text=Victory+Moment" alt="Victory Moment" class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <p class="text-white text-xl font-semibold">Moment of Victory</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Club Members Section -->
+    <section id="members" class="mb-20">
+      <h2 class="text-4xl md:text-5xl font-bold text-orange-400 mb-12 text-center drop-shadow-md">Club Members</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+        <!-- Member Card 1 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member1.jpg" alt="Captain" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Muktadir Hasan Saad</strong>
+          <div class="text-orange-300 text-base mt-1">Captain</div>
+        </div>
+        <!-- Member Card 2 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member2.jpg" alt="RMF" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Mahin Sarowar</strong>
+          <div class="text-orange-300 text-base mt-1">RMF</div>
+        </div>
+        <!-- Member Card 3 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member3.jpg" alt="CF" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Zeon</strong>
+          <div class="text-orange-300 text-base mt-1">CF</div>
+        </div>
+        <!-- Member Card 4 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member4.jpg" alt="CF" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Tuasin</strong>
+          <div class="text-orange-300 text-base mt-1">CF</div>
+        </div>
+        <!-- Member Card 5 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member5.jpg" alt="CF" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Ashikur Adib</strong>
+          <div class="text-orange-300 text-base mt-1">CF</div>
+        </div>
+        <!-- Member Card 6 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member6.jpg" alt="CMF" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Labib</strong>
+          <div class="text-orange-300 text-base mt-1">CMF</div>
+        </div>
+        <!-- Member Card 7 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member7.jpg" alt="CMF" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Siam</strong>
+          <div class="text-orange-300 text-base mt-1">CMF</div>
+        </div>
+        <!-- Member Card 8 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member8.jpg" alt="DMF" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Shimul</strong>
+          <div class="text-orange-300 text-base mt-1">DMF</div>
+        </div>
+        <!-- Member Card 9 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member9.jpg" alt="CB" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Asif Raihan</strong>
+          <div class="text-orange-300 text-base mt-1">CB</div>
+        </div>
+        <!-- Member Card 10 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member10.jpg" alt="CB" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Hasan Rabby</strong>
+          <div class="text-orange-300 text-base mt-1">CB</div>
+        </div>
+        <!-- Member Card 11 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member11.jpg" alt="CB" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Shuvo</strong>
+          <div class="text-orange-300 text-base mt-1">CB</div>
+        </div>
+        <!-- Member Card 12 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member12.jpg" alt="RB" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Araf</strong>
+          <div class="text-orange-300 text-base mt-1">RB</div>
+        </div>
+        <!-- Member Card 13 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member13.jpg" alt="LB" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Ahsab Habib Rafe</strong>
+          <div class="text-orange-300 text-base mt-1">LB</div>
+        </div>
+        <!-- Member Card 14 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member14.jpg" alt="Goalkeeper" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">Samdman Shams Swadin</strong>
+          <div class="text-orange-300 text-base mt-1">Goalkeeper</div>
+        </div>
+        <!-- Member Card 15 -->
+        <div class="bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center transform transition-transform hover:scale-[1.02] duration-300 ease-out">
+          <img src="member15.jpg" alt="Goalkeeper" class="w-28 h-28 rounded-full border-3 border-orange-400 mb-5 object-cover shadow-lg">
+          <strong class="text-lg font-semibold text-white text-center">S.M.Alfe Shah</strong>
+          <div class="text-orange-300 text-base mt-1">Goalkeeper</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="mt-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-orange-400 mb-12 text-center drop-shadow-md">Contact Us</h2>
+      <div class="text-xl leading-relaxed text-slate-200 text-center max-w-2xl mx-auto bg-slate-900 p-8 rounded-xl shadow-xl border border-slate-700">
+        <p class="mb-4">Email: <a href="mailto:friendsclubgfn@gmail.com" class="text-orange-300 hover:text-orange-200 underline transition-colors duration-200 font-medium">friendsclubgfn@gmail.com</a></p>
+        <p class="mb-4">Facebook: <a href="https://www.facebook.com/share/1BmqRWihHK/" target="_blank" class="text-orange-300 hover:text-orange-200 underline transition-colors duration-200 font-medium">www.facebook.com/share/1BmqRWihHK/</a></p>
+        <p>Mobile: <a href="tel:01734488379" class="text-orange-300 hover:text-orange-200 underline transition-colors duration-200 font-medium">01734488379</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="text-center py-8 bg-slate-900 bg-opacity-90 text-slate-400 text-sm mt-16 shadow-inner border-t border-slate-700">
     &copy; 2018 Friends Club. All rights reserved.
-  </div>
+  </footer>
+
 </body>
 </html>
